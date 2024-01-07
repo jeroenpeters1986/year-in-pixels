@@ -15,13 +15,10 @@ var precacheFiles = [
   '/sw-register.js',
   '/sw.js',
   // favicon
-  'https://cdn.glitch.com/86c99ebe-0198-4c6e-8de1-c4e515e04792%2Ffavicon.png?1546264249921',
+  '/favicon.png',
   // icon font
-  'https://cdn.glitch.com/e7b50d85-6473-4a0f-9575-f45e36b88b3e%2Ficofont.eot??v=1.0.0-beta#iefix',
-  'https://cdn.glitch.com/e7b50d85-6473-4a0f-9575-f45e36b88b3e%2Ficofont.eot??v=1.0.0-beta',
-  'https://cdn.glitch.com/e7b50d85-6473-4a0f-9575-f45e36b88b3e%2Ficofont.ttf??v=1.0.0-beta',
-  'https://cdn.glitch.com/e7b50d85-6473-4a0f-9575-f45e36b88b3e%2Ficofont.woff?v=1.0.0-beta',
-  'https://cdn.glitch.com/e7b50d85-6473-4a0f-9575-f45e36b88b3e%2Ficofont.svg?v=1.0.0-beta#icofont',
+  '/icofont.svg',
+  '/icofont.woff',
   // qotd.. too easy to hit 429.. and what good is a cached QOD anyway?
   // 'https://quotes.rest/qod',
   // chart lib

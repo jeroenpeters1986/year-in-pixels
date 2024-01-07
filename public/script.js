@@ -91,14 +91,11 @@
   
   function setQuoteOfTheDay() {
     $.ajax({
-      url : "https://quotes.rest/qod",
+      url : "https://api.quotable.io/quotes/random",
       dataType: "json",
       type: "GET",
       success: function(data) {
-        var content = data["contents"]["quotes"][0];
-        var quote = content["quote"];
-        var author = content["author"];
-        $("#quoteOfTheDay").html("<p>\""+quote+"\"</p><p class='author'>—"+author+"</p>");
+        $("#quoteOfTheDay").html("<p>\""+data[0]['content']+"\"</p><p class='author'>—"+data[0]['author']+"</p>");
       }
     });
   }

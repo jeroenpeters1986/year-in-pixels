@@ -213,6 +213,11 @@ form input[type=radio] ~ label:before {
   margin: 30px 0;
   padding: 30px 0 0;
 }
+
+.ct-chart {
+  font-family: 'Coming Soon', cursive;
+}
+
 #footer {
   margin: 30px 0;
   padding: 15px 0 0;
@@ -220,16 +225,12 @@ form input[type=radio] ~ label:before {
 }
 
 #footer ul {
+  font-family: 'Coming Soon';
+  font-size: smaller;
   text-align: center;
 }
 #footer ul li {
   display: inline-block;
-  margin: 0 7px;
-}
-#footer ul.social {
-  padding: 15px 0 0;
-}
-#footer ul.social li {
   margin: 0 7px;
 }
 #footer ul li a {
@@ -237,16 +238,19 @@ form input[type=radio] ~ label:before {
   color: #a2a2a2;
   border-bottom: 1px dotted #a2a2a2;
 }
+#footer ul li a:hover {
+  color: #000;
+}
 
 .dialog {
   font-family: 'Coming soon', cursive;
-  width: 300px;
+  width: 50%;
+  min-width: 450px;
   position: fixed;
   background-color: #FFF;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  text-align: center;
   border: 1px solid #a2a2a2;
   padding: 15px;
   outline: 9999px solid rgba(0,0,0,0.5);
@@ -258,6 +262,7 @@ form input[type=radio] ~ label:before {
   right: 5px;
   text-decoration: none;
   color: inherit;
+  font-size: x-large;
 }
 .dialog h3 {
   font-size: 16pt;
@@ -272,6 +277,7 @@ form input[type=radio] ~ label:before {
   resize: none;
   border: 1px solid #a2a2a2;
   outline: none;
+  font-family: monospace;
 }
 .dialog button {
   background-color: #FFF;
@@ -282,6 +288,10 @@ form input[type=radio] ~ label:before {
 }
 #aboutDialog p {
   line-height: 1.2;
+}
+#aboutDialog ul li {
+  margin-left: 20px;
+  list-style-type: circle;
 }
 
 /* Basic responsive, this was not intended for phone */
