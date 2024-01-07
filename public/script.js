@@ -5,11 +5,10 @@
   var activeMoodDay;
   var moodCalendarUrlHash = window.location.hash;
   var userPrefersHash = false;
-  console.log(moodCalendarUrlHash);
   if (moodCalendarUrlHash) {
     userPrefersHash = true;
   }
-  
+
   function getUrlHash() {
     return window.location.hash.split("/")[1];
   }
@@ -30,23 +29,31 @@
     setActiveDayMoodRadio();
   }
 
+  function hideLeapDay() {
+    if(isLeapYear()) {
+      // Feb 29th is day 60 (minus one is 59)
+      activeMoodDay = $moodItems.get(59);
+      $(activeMoodDay).css("display", "none");
+    }
+  }
+
   function setActiveDayMoodRadio() {
     var value = $(activeMoodDay).attr("data-mood");
     $("input[name=dayMood][value=" + value + "]").prop('checked', true);
     $dayMood.trigger('change');
   }
-  
+
   function setMoods(arrayOfMoods) {
     var day = $moodGrid.find('a');
     day.each(function(i) {
-      $(this).attr("data-mood", arrayOfMoods[i]) 
+      $(this).attr("data-mood", arrayOfMoods[i])
     });
   }
 
   function getMoodCalendarString() {
     return $moodGrid.find('a').map(function() { return $(this).attr("data-mood") }).get().join('');
   }
-  
+
   function updateMoodCalendar() {
     var moods = getMoodCalendarString();
     if (userPrefersHash) {
@@ -70,7 +77,7 @@
       setMoods(moodArr.split(''));
     }
   }
-  
+
   function createPixelsForHeader() {
     var pixelsWidth = $("#pixels").width();
     var pixelsHeight = $("#pixels").height();
@@ -88,7 +95,7 @@
       }).appendTo('#pixels');
     }
   }
-  
+
   function setQuoteOfTheDay() {
     $.ajax({
       url : "https://api.quotable.io/quotes/random",
@@ -99,7 +106,7 @@
       }
     });
   }
-  
+
   function getMonthMoodAvgArr() {
     var moods = $moodGrid.find('.item.month').map(function() {
       return $(this).find("a")
@@ -129,7 +136,7 @@
     });
     return results;
   }
-  
+
   function createAvgChart() {
     var data = {
       labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
@@ -183,23 +190,23 @@
       $("#message").html(message);
     }
   });
-  
+
   $("#footer a").on("click", function(e) {
     e.preventDefault();
     var action = $(this).attr('data-menu');
     execMenuItem(action);
   });
-  
+
   $(".dialog .close").on("click", function(e) {
     e.preventDefault();
     $("#importMoodText").val('');
     $(this).parent('.dialog').fadeOut('fast');
   });
-  
+
   $("#importMoodBtn").on("click", function(e) {
     e.preventDefault();
     var moodCalendar = $("#importMoodText").val();
-    if (moodCalendar.length == 365) {
+    if (moodCalendar.length === 365 || moodCalendar.length === 366) {
       var dialog = confirm("Careful, this will clear all the current data. Are you sure?");
       if (dialog) {
         loadMoodCalendar(moodCalendar);
@@ -215,7 +222,7 @@
       alert("We're sorry.\nThe data is not valid. Please try again.");
     }
   });
-  
+
   var menu = {
     showImportDialog: function() {
       $("#importDialog").fadeIn('fast');
@@ -244,7 +251,13 @@
       $("#aboutDialog").fadeIn('fast');
     },
   }
-  
+
+  function isLeapYear()
+  {
+    const year = new Date().getFullYear()
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+  }
+
   function execMenuItem(action) {
     $(".dialog").fadeOut('fast');
     switch(action) {
@@ -274,6 +287,7 @@
 
   loadMoodCalendar();
   selectTodayMood();
+  hideLeapDay();
   createPixelsForHeader();
   setQuoteOfTheDay();
   createAvgChart();
