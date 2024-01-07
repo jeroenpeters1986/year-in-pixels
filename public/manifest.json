@@ -4,7 +4,7 @@
     "name": "Year in Pixels",
     "scope": "/",
     "display": "standalone",
-    "start_url": "https://year-in-pixels.jeroenpeters.dev/",
+    "start_url": "http://year-in-pixels.ddev.site:43751/",
     "short_name": "Year in Pixels",
     "theme_color": "#ffffff",
     "description": "Small tool to keep track of your mood during all year using pixels.",
@@ -13,7 +13,7 @@
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "https://year-in-pixels.jeroenpeters.dev/favicon.ico",
+            "src": "http://year-in-pixels.ddev.site:43751/favicon.png",
             "type": "image/png",
             "sizes": "512x512"
         }

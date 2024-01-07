@@ -1,6 +1,6 @@
 {
   "name": "year-in-pixels",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Small tool to keep track of your mood during all year using pixels.",
   "main": "server.js",
   "scripts": {
@@ -13,10 +13,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18",
     "jade": "^1.11.0"
   },
   "engines": {
-    "node": "8.x"
+    "node": "20.x"
   }
 }

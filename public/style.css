@@ -242,6 +242,12 @@ form input[type=radio] ~ label:before {
   color: #000;
 }
 
+div#end-of-year-notice p {
+  font-family: 'Coming Soon', cursive;
+  text-align: center;
+  display: none;
+}
+
 .dialog {
   font-family: 'Coming soon', cursive;
   width: 50%;
